@@ -7,3 +7,43 @@ metadata:
 spec:
   authentication:
     type: scram-sha-512
+  authorization:
+    acls:
+      - host: '*'
+        operations:
+          - Create
+          - Describe
+          - Read
+          - Write
+        resource:
+          name: connect-cluster-offsets
+          patternType: literal
+          type: topic
+      - host: '*'
+        operations:
+          - Create
+          - Describe
+          - Read
+          - Write
+        resource:
+          name: connect-cluster-status
+          patternType: literal
+          type: topic
+      - host: '*'
+        operations:
+          - Create
+          - Describe
+          - Read
+          - Write
+        resource:
+          name: connect-cluster-configs
+          patternType: literal
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+        resource:
+          name: connect-cluster
+          patternType: literal
+          type: group
+    type: simple    
